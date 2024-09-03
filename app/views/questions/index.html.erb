@@ -1,14 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Questions</h1>
+<h1>INDEX Questions</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Content</th>
+    <th></th>
+  </tr>
 
-<div id="questions">
-  <% @questions.each do |question| %>
-    <%= render question %>
-    <p>
-      <%= link_to "Show this question", question %>
-    </p>
-  <% end %>
-</div>
+  <div id="questions">  
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.id %></td>
+        <td><%= question.title %></td>
+        <td><%= question.name %></td>
+        <td><%= question.content %></td>
+        <td><%= link_to 'show', question_path(question) %></td>
+      </tr>
+    <% end %>
+  </div>
+</table>
 
 <%= link_to "New question", new_question_path %>
